@@ -33,24 +33,24 @@ end
 
 # font-awesome
 say 'Applying font-awesome...'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 
 # carrierwave
-say 'Applying carrierwave...'
-gem 'carrierwave'
-replace_from_remote('image_uploader.rb', 'app/uploaders/image_uploader.rb')
+say 'Applying carrierwave and mini_magick...'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'mini_magick'
+# replace_from_remote('image_uploader.rb', 'app/uploaders/image_uploader.rb')
 
 say 'Applying rails-i18n...'
 gem 'rails-i18n', '~> 5.0.0'
 
 say 'Applying debug tools...'
-gem 'awesome_rails_console'
 gem_group :development, :test do
   gem 'meta_request'
-  gem 'better_errors'
   gem 'bullet'
   gem 'rails-erd'
-  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'faker'
 end
 
 say 'Applying basic application config...'
